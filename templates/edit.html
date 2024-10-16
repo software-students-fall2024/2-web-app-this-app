@@ -8,6 +8,7 @@
 
 
     <h1>Book Details</h1>
+    <p id="errorMessage" style="color: red;"> {{ message }} </p>
     <div class="book-info">
     <div class="detail-row">
         <span class="detail-label">Title:</span> <span>{{ book.title }}</span>
@@ -58,6 +59,6 @@
                 <button type="submit" class="btn-delete">Delete Book</button>
             </form>
         </div>
+        
     </form>
-
 {% endblock %}
