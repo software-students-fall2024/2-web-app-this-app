@@ -27,10 +27,9 @@
         <label for="quantity">Quantity:</label>
         <input type="number" name="quantity" id="quantity" required value={{ userInput.quantity }}>
         </div>
+        <p id="errorMessage" style="color: red;"> {{ message }} </p>
         <div>
         <input type="submit" value="Add" id="addButton">
         </div>
     </form>
-
-    <p id="errorMessage" style="color: red;"> {{ message }} </p>
 {% endblock %}

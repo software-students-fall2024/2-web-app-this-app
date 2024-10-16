@@ -20,11 +20,10 @@
         <label for="dateAdded">Date Added:</label>
         <input type="date" name="dateAdded" id="dateAdded" value={{ userInput.dateAdded }}>
         <label for="regex">Use regular expressions for title, genre, and author?</label>
-        <input type="checkbox" name="regex" id="regex" value="yes" {{ userInput.regex }}>
+        <input type="checkbox" style="float: right;" name="regex" id="regex" value="yes" {{ userInput.regex }}>
+        <p id="errorMessage" style="color: red;"> {{ message }} </p>
         <input type="submit" value="Search" id="searchButton">
     </form>
-
-    <p id="errorMessage" style="color: red;"> {{ message }} </p>
 
     <table id="searchResult">
         <thead>
