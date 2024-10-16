@@ -10,22 +10,27 @@
     <h1>Book Details</h1>
     <div class="book-info">
     <div class="detail-row">
-        <span class="detail-label">Title:</span> <span>{{ book.title }}</span>
+        <span class="detail-label"><b>Title:</b></span> <span>{{ book.title }}</span>
+        <br>
     </div>
     <div class="detail-row">
-        <span class="detail-label">Author:</span> <span>{{ book.author }}</span>
+        <span class="detail-label"><b>Author:</b></span> <span>{{ book.author }}</span>
+        <br>
     </div>
     <div class="detail-row">
-        <span class="detail-label">Genre:</span> <span>{{ book.genre }}</span>
+        <span class="detail-label"><b>Genre:</b></span> <span>{{ book.genre }}</span>
+        <br>
     </div>
     <div class="detail-row">
-        <span class="detail-label">Price:</span> <span>{{ book.price }}</span>
+        <span class="detail-label"><b>Price:</b></span> <span>{{ book.price }}</span>
+        <br>
     </div>
     <div class="detail-row">
-        <span class="detail-label">Quantity:</span> <span>{{ book.quantity }}</span>
+        <span class="detail-label"><b>Quantity:</b></span> <span>{{ book.quantity }}</span>
+        <br>
     </div>
     <div class="detail-row">
-        <span class="detail-label">Date Added:</span> <span>{{ book.date_added }}</span>
+        <span class="detail-label"><b>Date Added:</b></span> <span>{{ book.date_added }}</span>
     </div>
 </div>
     <br>
@@ -33,31 +38,30 @@
     <form method="POST" action="{{ url_for('edit', book_id=book['_id']) }}">
         <div class="form-group">
             <label for="title" class="detail-label">Title:</label>
-            <input type="text" id="title" name="title" value="{{ book.title }}">
+            <input type="text" id="title" name="title" value="{{ book.title }}" required>
         </div>
         <div class="form-group">
             <label for="author" class="detail-label">Author:</label>
-            <input type="text" id="author" name="author" value="{{ book.author }}">
+            <input type="text" id="author" name="author" value="{{ book.author }}" required>
         </div>
         <div class="form-group">
             <label for="genre" class="detail-label">Genre:</label>
-            <input type="text" id="genre" name="genre" value="{{ book.genre }}">
+            <input type="text" id="genre" name="genre" value="{{ book.genre }}" required>
         </div>
         <div class="form-group">
             <label for="price" class="detail-label">Price:</label>
-            <input type="text" id="price" name="price" value="{{ book.price }}">
+            <input type="text" id="price" name="price" value="{{ book.price }}" required>
         </div>
         <div class="form-group">
             <label for="quantity" class="detail-label">Quantity:</label>
-            <input type="text" id="quantity" name="quantity" value="{{ book.quantity }}">
+            <input type="number" id="quantity" name="quantity" value="{{ book.quantity }}" required>
+            <p id="errorMessage" style="color: red;"> {{ message }} </p>
         </div>
-        <br>
         <div class="action-buttons">
             <button type="submit" class="btn-save">Save Changes</button>
             <form action="{{ url_for('delete_book', book_id=book['_id']) }}" method="POST" style="display:inline;">
                 <button type="submit" class="btn-delete">Delete Book</button>
             </form>
         </div>
-        <p id="errorMessage" style="color: red;"> {{ message }} </p>
     </form>
 {% endblock %}

@@ -69,6 +69,10 @@ button:hover {
     background-color: #f7aeae;
 }
 
+.detail-row {
+    line-height: 1.6;
+}
+
 @media (min-width: 450px) {
     h1, h2 {
         text-align: center;
