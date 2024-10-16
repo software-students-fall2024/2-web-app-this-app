@@ -40,7 +40,7 @@ button:hover {
 }
 
 .btn-delete {
-    background-color: #F7DC6F;
+    background-color: #e33b3b;
 }
 
 .btn-delete:hover {
@@ -54,6 +54,7 @@ button:hover {
 .btn-edit button:hover {
     background-color: #f6eaac;
 }
+
 
 footer {
     position: relative;
