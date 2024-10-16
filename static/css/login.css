@@ -72,7 +72,6 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
-/* Mobile-specific adjustments */
 @media (max-width: 480px) {
     form {
         padding: 15px;
