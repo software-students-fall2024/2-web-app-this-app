@@ -40,11 +40,11 @@ button:hover {
 }
 
 .btn-delete {
-    background-color: #e33b3b;
+    background-color: #ff8080;
 }
 
 .btn-delete:hover {
-    background-color: #f6eaac;
+    background-color: #f69191;
 }
 
 .btn-edit button {
