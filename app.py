@@ -236,24 +236,16 @@ def create_app():
             genre = request.form.get('genre')
             price = request.form.get('price')
             quantity = request.form.get('quantity')
-
-            if price:
-                try:
-                    price = float(price)
-                    if price < 0:
-                        raise ValueError("Price must be a non-negative number.")
-                except ValueError as e:
-                    flash(str(e), "error")
-                    return render_template("edit.html", book={'_id': book_id, 'title': title, 'author': author, 'genre': genre, 'price': price, 'quantity': quantity})
-
-            if quantity:
-                try:
-                    quantity = int(quantity)
-                    if quantity < 0:
-                        raise ValueError("Quantity must be a non-negative integer.")
-                except ValueError as e:
-                    flash(str(e), "error")
-                    return render_template("edit.html", book={'_id': book_id, 'title': title, 'author': author, 'genre': genre, 'price': price, 'quantity': quantity})
+            book = db[userdb].find_one({"_id": ObjectId(book_id)})
+            inputDict = {'title': title, 'author': author, 'genre': genre, 'price': price, 'quantity': quantity}
+            try:
+                price = float(price)
+                quantity = int(quantity)
+            except ValueError:
+                return render_template("edit.html", message="Price and quantity must be numbers.", userInput=inputDict,book=book)
+        
+            if price < 0 or quantity < 0:
+                return render_template("edit.html", message="Price and quantity must be non-negative values.", userInput=inputDict,book=book)
 
 
             db[userdb].update_one(
